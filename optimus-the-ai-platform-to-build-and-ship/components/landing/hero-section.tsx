@@ -4,12 +4,17 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./animated-sphere";
+import { WalletOptIn } from "./wallet-opt-in";
 
 const words = ["simulate", "score", "pause", "prove"];
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
+
+  const runDemo = () => {
+    window.dispatchEvent(new CustomEvent("synaptic:run-demo"));
+  };
 
   useEffect(() => {
     setIsVisible(true);
@@ -118,15 +123,15 @@ export function HeroSection() {
             }`}
           >
             <Button
-              asChild
+              type="button"
+              onClick={runDemo}
               size="lg" 
               className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
             >
-              <a href="#demo">
-                Run incident demo
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </a>
+              Run incident demo
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
+            <WalletOptIn />
             <Button
               asChild
               size="lg" 

@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { AnimatedTetrahedron } from "./animated-tetrahedron";
+import { DemoConsole } from "./demo-console";
+import { WalletOptIn } from "./wallet-opt-in";
 
 export function CtaSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,6 +29,10 @@ export function CtaSection() {
       x: ((e.clientX - rect.left) / rect.width) * 100,
       y: ((e.clientY - rect.top) / rect.height) * 100,
     });
+  };
+
+  const runDemo = () => {
+    window.dispatchEvent(new CustomEvent("synaptic:run-demo"));
   };
 
   return (
@@ -63,15 +68,15 @@ export function CtaSection() {
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Button
-                    asChild
+                    type="button"
+                    onClick={runDemo}
                     size="lg"
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                   >
-                    <a href="#how-it-works">
-                      Run incident demo
-                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </a>
+                    Run incident demo
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
+                  <WalletOptIn />
                   <Button
                     asChild
                     size="lg"
@@ -88,8 +93,8 @@ export function CtaSection() {
               </div>
 
               {/* Right animation */}
-              <div className="hidden lg:flex items-center justify-center w-[500px] h-[500px] -mr-16">
-                <AnimatedTetrahedron />
+              <div className="flex w-full justify-center lg:w-[520px] lg:-mr-8">
+                <DemoConsole />
               </div>
             </div>
           </div>

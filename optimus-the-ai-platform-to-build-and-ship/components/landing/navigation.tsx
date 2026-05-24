@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { WalletOptIn } from "./wallet-opt-in";
 
 const navLinks = [
   { name: "Signals", href: "#features" },
@@ -68,6 +69,7 @@ export function Navigation() {
             <a href="#developers" className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}>
               Docs
             </a>
+            <WalletOptIn compact />
             <Button
               asChild
               size="sm"
@@ -139,14 +141,9 @@ export function Navigation() {
                 Docs
               </a>
             </Button>
-            <Button
-              asChild
-              className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
-            >
-              <a href="#demo" onClick={() => setIsMobileMenuOpen(false)}>
-                Watch demo
-              </a>
-            </Button>
+            <div onClick={() => setIsMobileMenuOpen(false)} className="flex-1">
+              <WalletOptIn className="[&>button]:w-full" />
+            </div>
           </div>
         </div>
       </div>
