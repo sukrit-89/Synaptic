@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Virtual env
+.venv/
+venv/
+
+# Environment
+.env
+
+# Node (if needed for frontend later)
+node_modules/
+
+# Foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/lib/
+
+# Next.js frontend
+optimus-the-ai-platform-to-build-and-ship/.next/
+optimus-the-ai-platform-to-build-and-ship/out/
+optimus-the-ai-platform-to-build-and-ship/*.tsbuildinfo
+
+# Docker
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+.openclaude/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
